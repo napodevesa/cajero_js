@@ -1,3 +1,7 @@
+var dinero = 0;
+var div = 0;
+var papeles = 0;
+
 class Billete
 {
 
@@ -12,7 +16,9 @@ class Billete
 
 function entregarDinero()
 {
- 
+ 	var t = document.getElementById("dinero");
+ 	dinero = parseInt (t.value);
+
  	for (var bi of caja)
  	{
 
@@ -30,18 +36,28 @@ function entregarDinero()
  				papeles = div;
  			}
 
- 	entregado.push(new Billete (b.valor, papeles));
+ 	entregado.push(new Billete (bi.valor, papeles));
  	dinero = dinero - (bi.valor * papeles);
 
  		}
  	}
 
- 	if (dinero < 0)
+ 	if (dinero > 0)
  	{
- 		console.log ("No money");
+ 		document.write ("No money");
  	}
 
- 	console.log (entregado);
+ 	else
+
+ 	{
+
+ 		for (var e of entregado)
+ 		{
+ 			document.write (e.cantidad + " billetes de $ " + e.valor + " \n <br/>");
+ 		}
+
+ 	}
+
 }
 
 var caja = [];
@@ -49,12 +65,8 @@ var entregado = [];
 
 caja.push(new Billete(50,3));
 caja.push(new Billete(20,2));
+
 caja.push(new Billete(10,2));
-
-var dinero = 210;
-
-var div = 0;
-var papeles = 0;
 
 var b = document.getElementById("extraer");
 b.addEventListener ("click", entregarDinero);
