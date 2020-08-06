@@ -16,9 +16,32 @@ function entregarDinero()
  	for (var bi of caja)
  	{
 
- 		console.log (bi);
+ 		if (dinero > 0)
+ 		{
+ 			div = Math.floor(dinero / bi.valor);
+ 			
+ 			if (div > bi.cantidad)
+ 			{
+ 				papeles = bi.cantidad;
+ 			}
+
+ 			else
+ 			{
+ 				papeles = div;
+ 			}
+
+ 	entregado.push(new Billete (b.valor, papeles));
+ 	dinero = dinero - (bi.valor * papeles);
+
+ 		}
  	}
 
+ 	if (dinero < 0)
+ 	{
+ 		console.log ("No money");
+ 	}
+
+ 	console.log (entregado);
 }
 
 var caja = [];
