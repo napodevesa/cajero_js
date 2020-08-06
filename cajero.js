@@ -44,7 +44,7 @@ function entregarDinero()
 
  	if (dinero > 0)
  	{
- 		document.write ("No money");
+ 		resultado.innerHTML = "No money";
  	}
 
  	else
@@ -53,7 +53,7 @@ function entregarDinero()
 
  		for (var e of entregado)
  		{
- 			document.write (e.cantidad + " billetes de $ " + e.valor + " \n <br/>");
+ 			resultado.innerHTML = resultado.innerHTML + e.cantidad + " billetes de $ " + e.valor + " \n <br/>" ;
  		}
 
  	}
@@ -68,6 +68,7 @@ caja.push(new Billete(20,2));
 
 caja.push(new Billete(10,2));
 
+var resultado = document.getElementById("resultado");
 var b = document.getElementById("extraer");
 b.addEventListener ("click", entregarDinero);
 
