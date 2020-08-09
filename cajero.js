@@ -5,10 +5,13 @@ var papeles = 0;
 class Billete
 {
 
-	constructor (v,c)
+	constructor (v,c,imagenes)
 	{
+
 	this.valor = v;
 	this.cantidad = c;
+	
+	
 	}
 
 	
@@ -37,7 +40,7 @@ function entregarDinero()
  			}
 
  	entregado.push(new Billete (bi.valor, papeles));
- 	dinero = dinero - (bi.valor * papeles);
+ 	dinero -= (bi.valor * papeles);
 
  		}
  	}
@@ -53,24 +56,32 @@ function entregarDinero()
 
  		for (var e of entregado)
  		{
- 			resultado.innerHTML = resultado.innerHTML + e.cantidad + " billetes de $ " + e.valor + " \n <br/>" ;
+ 			resultado.innerHTML += + e.cantidad + " billetes de $ " + e.valor + " \n <br/> " ;
  		}
 
  	}
 
 }
 
+var imagenes = [];
+imagenes ["5"]= "5.png";
+imagenes ["10"]= "10.png";
+imagenes ["20"]= "20.png"; 
+imagenes ["50"]= "50.png";
+imagenes ["100"]= "100.png"; 
+
+
 var caja = [];
 var entregado = [];
 
-caja.push(new Billete(50,3));
-caja.push(new Billete(20,2));
-
-caja.push(new Billete(10,2));
+caja.push(new Billete(100,10));
+caja.push(new Billete(50,10));
+caja.push(new Billete(20,10));
+caja.push(new Billete(10,10));
+caja.push(new Billete(5,10));
 
 var resultado = document.getElementById("resultado");
 var b = document.getElementById("extraer");
 b.addEventListener ("click", entregarDinero);
-
 
 
