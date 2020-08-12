@@ -28,16 +28,19 @@ class Billete
 	
 	}
 
-	mostrar(cantidad)
+	mostrar(c)
 
-	{		
-		var cant = cantidad;
-		for (var v =0; v < cant; v++)
+	{	
+		this.cantidad = c;
 
-			document.body.appendChild(this.imagen);
+		for (var v =0; v < this.cantidad; v++)
+	 			{
 
-		}				
+	 				document.body.appendChild(this.imagen);
+	 			}
+		
 
+	}				
 	
 }
 
@@ -88,9 +91,7 @@ function entregarDinero()
 
  			resultado.innerHTML += + e.cantidad + " billetes de $ " + e.valor + " \n  " + e.nombre + " \n <br/> ";
  				
- 				e.mostrar(e.cantidad);
-
- 				console.log (e.imagen)
+	 			e.mostrar(e.cantidad);
  			 	
  			}
  			
@@ -106,6 +107,7 @@ caja.push(new Billete(20,10, "veinte"));
 caja.push(new Billete(10,10, "diez"));
 caja.push(new Billete(5,10, "cinco"));
 caja.push(new Billete(1,100, "uno"));
+
 
 
 var resultado = document.getElementById("resultado");
