@@ -2,13 +2,14 @@ body{
 
 	background: #E0E0E0 ;
 	padding: 10px;
-	padding-left: 200px;
+	padding-left: 250px;
 	background-image: url("pesos.png");
-	
+	width: 300px;
+
 
 }
 
-h1{
+h3{
 
 	background: #B1FE00 ;
 	padding: 10px;
