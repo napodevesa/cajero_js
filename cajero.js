@@ -3,20 +3,44 @@ var dinero = 0;
 var div = 0;
 var papeles = 0;
 
+var caja = [];
+var entregado = [];
+
+var imagenes = [];
+imagenes ["cien"]= "100.png";
+imagenes ["cincuenta"]= "50.png";
+imagenes ["veinte"]= "20.png";
+imagenes ["diez"]= "10.png";
+imagenes ["cinco"]= "5.png";
+imagenes ["uno"]= "1.png";
+
 class Billete
 {
 
-	constructor (v,c,imagenes)
+	constructor (v,c, n)
 	{
-
+	//this.imagenes.src = imagenes [this.n];
+	this.imagen = new Image();
 	this.valor = v;
 	this.cantidad = c;
-	this.imagenes = imagenes;
+	this.nombre = n; 
+	this.imagen.src = imagenes[this.nombre];
 	
 	}
 
+	mostrar(cantidad)
+
+	{		
+		var cant = cantidad;
+		for (var v =0; v < cant; v++)
+
+			document.body.appendChild(this.imagen);
+
+		}				
+
 	
 }
+
 
 
 function entregarDinero()
@@ -41,7 +65,7 @@ function entregarDinero()
  				papeles = div;
  			}
 
- 	entregado.push(new Billete (bi.valor, papeles));
+ 	entregado.push(new Billete (bi.valor, papeles, bi.nombre));
  	dinero -= (bi.valor * papeles);
 
  		}
@@ -58,32 +82,31 @@ function entregarDinero()
 
  		for (var e of entregado)
  		{
- 			resultado.innerHTML += + e.cantidad + " billetes de $ " + e.valor + " \n <br/> " ;
+ 			if (e.cantidad > 0 )
+
+ 			{
+
+ 			resultado.innerHTML += + e.cantidad + " billetes de $ " + e.valor + " \n  " + e.nombre + " \n <br/> ";
+ 				
+ 				e.mostrar(e.cantidad);
+
+ 				console.log (e.imagen)
+ 			 	
+ 			}
+ 			
  		}
 
  	}
 
 }
 
+caja.push(new Billete(100,10, "cien"));
+caja.push(new Billete(50,10, "cincuenta"));
+caja.push(new Billete(20,10, "veinte"));
+caja.push(new Billete(10,10, "diez"));
+caja.push(new Billete(5,10, "cinco"));
+caja.push(new Billete(1,100, "uno"));
 
-
-var imagenes = [];
-imagenes ["5"]= "5.png";
-imagenes ["10"]= "10.png";
-imagenes ["20"]= "20.png"; 
-imagenes ["50"]= "50.png";
-imagenes ["100"]= "100.png"; 
-
-
-var caja = [];
-var entregado = [];
-
-caja.push(new Billete(100,10,"100.png" ));
-caja.push(new Billete(50,10, "50.png"));
-caja.push(new Billete(20,10, "20.png"));
-caja.push(new Billete(10,10, "10.png"));
-caja.push(new Billete(5,10, "5.png"));
-caja.push(new Billete(1,100));
 
 var resultado = document.getElementById("resultado");
 var b = document.getElementById("extraer");
