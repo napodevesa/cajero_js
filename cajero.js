@@ -49,6 +49,8 @@ function entregarDinero()
  	var total = 0;
  	var final = dinero ;
 
+ 	
+
  	for (var bi of caja)
  	{
 
@@ -122,11 +124,16 @@ function darSaldoBillete(indice)
 	return res;
 }
 
-function darSaldoTotal(darSaldoBillete)
+function darSaldoTotal()
 
 {
-	res1 = darSaldoBillete(0) + darSaldoBillete(1) + darSaldoBillete(2) + darSaldoBillete(3)
-	+ darSaldoBillete(4) + darSaldoBillete(5)
+	for (var i=0; i<= 5; i++)
+
+	{
+
+		res1 += darSaldoBillete(i)
+	}
+	
 	return res1;
 }
 
